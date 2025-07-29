@@ -40,6 +40,13 @@ header {
     margin: 35px 20px;
 }
 
+.nav_login
+{
+    padding:5px 7px;
+    border: solid 1px black;
+    border-radius:8px;
+}
+
 .nav_links a {
     color:black;
     text-decoration: none;
@@ -52,8 +59,6 @@ header {
 }
 
 /*BODY1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-
-
 .body1 {
     display:flex;
     justify-content: space-between;
@@ -116,6 +121,41 @@ header {
     position:relative;
     align-items:  center;
     
+}
+
+
+/*BODY2 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.body2 {
+    display:flex;
+    justify-content: space-between;
+    margin:100px 200px;
+}
+
+
+
+.body2 .img_logo2 img {
+    border-radius:20px;
+    box-shadow: 0px 1px 10px black;
+    transition:all 0.3s ease;
+}
+
+.body2 .img_logo2 img:hover {
+    width:550px;
+    height: 300px;
+}
+
+.body2 .texto_body2 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+}
+
+.texto_body2 button {
+    width: 25%;
+    margin-top:80px;
+    transform: translateX(0%);
 }
 
 
