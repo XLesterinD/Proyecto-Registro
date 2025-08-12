@@ -82,7 +82,7 @@ header {
     height:500px;
     justify-content: space-between;
     margin: 100px 100px;
-    border:solid black 1px;
+    box-shadow: black 0 0 5px;
     border-radius: 30px;
 }
 
