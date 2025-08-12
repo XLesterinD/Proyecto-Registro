@@ -29,11 +29,11 @@
         </div>
         <div class="login">
             <img src="../static/images/DevPro3.png" width="100px"/>
-            <div class="datos">
+            <form class="datos" action="{{ url_for('login') }}" method="POST">
                 <input class="form-control" type="email" id="email_login" placeholder="Ingresa tu usuario" name="email_login"/>
                 <input class="form-control" type="password" id="password_login" placeholder="Ingresa tu contraseña" name="password_login"/>
                 <button class="btn btn-primary" id="button_login" name="button_login">Ingresar</button>
-            </div>
+            </form>
         </div>
     </section>
     <footer>
