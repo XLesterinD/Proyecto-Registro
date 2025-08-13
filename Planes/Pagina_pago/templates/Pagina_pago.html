@@ -16,17 +16,67 @@
             <img class ="img_logo" src ="{{ url_for('pagina_pago.static', filename='images/DevPro.png') }}"/>
         </div>
         <nav class ="nav_links">
-            <a class="nav_link" href="../../../Index/templates/Index.html">Home</a>
-            <a class="nav_link" href="../../Planes/Index_planes/templates/index_planes.html">Planes</a>
-            <a class="nav_link" href="../Funciones/Index_funciones/templates/Index_funciones.html">Funciones</a>
-            <a class="nav_link" href="#">Contacto</a>
-            <a class="nav_login" href="../../../Usuario/Login/templates/Login.html">Login</a>
-            <a class="nav_login" href="../../Usuario/Sign up/templates/Sign_up.html">Sign up</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Home</a>
+            <a class="nav_link" href="{{ url_for('index_planes.index_planes') }}">Planes</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Funciones</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Contacto</a>
+            <a class="nav_login" href="{{ url_for('login.login_def') }}">Login</a>
+            <a class="nav_login" href="{{ url_for('signup.signup_def') }}">Sign up</a>
         </nav>
     </header>
-    <section class="section">
-        <h1>Adquirir {{ plan|capitalize }}</h1>
-        <p>{{ descripcion }}</p>
+    <section class="section1">
+        
+        <form class="form_pago" action="/procesar-pago" method="POST">
+            <h2>Formulario de Pago</h2>
+            <label for="nombre">Nombre:</label>
+            <input class="input-group-text" type="text" id="nombre" name="nombre" required>
+
+            <label for="apellido">Apellido:</label>
+            <input class="input-group-text" type="text" id="apellido" name="apellido" required>
+
+            <label for="correo">Correo electrónico:</label>
+            <input class="input-group-text" type="email" id="correo" name="correo" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input class="input-group-text" type="text" id="telefono" name="telefono" required>
+
+            <label for="pais">País:</label>
+            <input class="input-group-text" type="text" id="pais" name="pais" required>
+
+            <label for="ciudad">Ciudad:</label>
+            <input class="input-group-text" type="text" id="ciudad" name="ciudad" required>
+
+            <label for="direccion">Dirección:</label>
+            <input class="input-group-text" type="text" id="direccion" name="direccion" required>
+
+            <label for="codigo_postal">Código Postal:</label>
+            <input class="input-group-text" type="text" id="codigo_postal" name="codigo_postal" required>
+
+            <label for="nit">NIT:</label>
+            <input class="input-group-text" type="text" id="nit" name="nit" required>
+
+            <button class="btn btn-dark" type="submit">Pagar ahora</button>
+        </form>
+
+        <div class="info_pago">
+            <h2>Has seleccionado el {{ plan | capitalize }}</h2>
+            <p>{{ descripcion }}</p>
+
+            <form method="POST" action="/procesar-pago">
+                <input type="hidden" name="plan" value="{{ plan }}">
+
+                <label>
+                    <input type="radio" name="tipo_pago" value="mensual:{{ precio.mensual }}" checked>
+                    Mensual - ${{ precio.mensual }}
+                </label><br>
+
+                <label>
+                    <input type="radio" name="tipo_pago" value="anual:{{ precio.anual }}">
+                    Anual - ${{ precio.anual }}
+                </label><br>
+            </form>
+        </div>
+
     </section>
     <footer>
         <div class="social_media">

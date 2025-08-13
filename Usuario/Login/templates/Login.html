@@ -7,7 +7,7 @@
     <link href="../static/images/DevPro.png" rel="icon" type="image/x icon" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
-    <link href="{{ url_for('login.static', filename='styleLogin.css') }}" rel="stylesheet">
+    <link href="{{ url_for('login.static', filename='css/styleLogin.css') }}" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
@@ -26,6 +26,13 @@
     <section class="login_complete">
         <div class="text_login">
             <h2>Inicia sesión y ten acceso a funciones para organizar tu información</h2>
+            
+            {% if mensaje %}
+            <div class="popup">
+                {{ mensaje }}
+            </div>
+            {% endif %}
+
         </div>
         <div class="login">
             <img src="{{ url_for('login.static', filename='Images/DevPro3.png') }}" width="100px"/>

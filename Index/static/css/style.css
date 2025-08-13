@@ -152,7 +152,7 @@ header {
     height: auto;
 }
 
-.texto_body2 button {
+.texto_body2 a {
     width: 25%;
     margin-top:80px;
     transform: translateX(0%);

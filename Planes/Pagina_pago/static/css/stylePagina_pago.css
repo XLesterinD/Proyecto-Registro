@@ -57,58 +57,33 @@ header {
     opacity: 0.3;
 }
 
-/*PLANES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*PAGO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
+.section1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 150px 300px;
+    flex:1;
+}
 
-.section{
-    margin-top:100px;
+.info_pago {
+    border: solid black 1px;
+}
+
+.form_pago {
     display: flex;
     flex-direction: column;
-    align-items:center;
-    justify-content: space-between;
-    flex: 1; /* Esto empuja el footer hacia abajo */
+    width: 500px;
+    margin: auto 100px;;
 }
 
-.section1 h1 {
-    color:rgb(58, 4, 145);
-    align-self: center;
-    text-align: center;
-}
-
-.planes{
+.form_pago button {
     display: flex;
-    width: 100%;
-    height: 100%;
-    margin: 50px 10px;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
-.plan{
-    width:25%;
-    height: 80%;
-    padding:20px 10px;
-    margin:50px 45px;
-    display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: black 0 0 10px;
-    border-radius: 15px;
-    transition: all 0.5s ease;
-}
-
-.plan:hover {
-    width:24%;
-    height: 79%;
-}
-
-
-.plan .btn {
-    position:relative;
-    bottom: 0;
+    width: 500px;
+    margin: 20px 1px;
     width: 50%;
+    transform: translateX(50%);
 }
 
 /*FOOTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
