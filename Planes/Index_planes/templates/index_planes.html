@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link href="../../Index_planes/static/images/DevPro.png" rel="icon" type="image/x icon" />
-    <link href ="../../Index_planes/static/css/stylePlanes.css" rel="Stylesheet">
+    <link href="{{ url_for('index_planes.static', filename='images/DevPro.png') }}" rel="icon" type="image/x icon" />
+    <link rel="stylesheet" href="{{ url_for('index_planes.static', filename='css/stylePlanes.css') }}">
+
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
     <title>Planes</title>
@@ -13,7 +14,7 @@
 <body>
     <header>
         <div class = "logo_nav">
-            <img class ="img_logo" src ="../static/images/DevPro.png"/>
+            <img class ="img_logo" src ="{{ url_for('index_planes.static', filename='images/DevPro.png') }}"/>
         </div>
         <nav class ="nav_links">
             <a class="nav_link" href="../../../Index/templates/Index.html">Home</a>
@@ -39,7 +40,7 @@
                     <li>Soporte por correo electrónico (48 h)</li>
                     <li>Certificado SSL incluido</li>
                 </ul>
-                <button class="btn btn btn-info" type="submit">Adquirir</button>
+                <a class="btn btn btn-info" href="/pago?plan=free">Adquirir</a>
             </div>
             <div class="plan">
                 <h1>Plan Starter</h1>
@@ -52,7 +53,7 @@
                     <li>Certificado SSL incluido</li>
                     <li>Dominio personalizado</li>
                 </ul>
-                <button class="btn btn btn-info" type="submit">Adquirir</button>
+                <a class="btn btn btn-info" href="/pago?plan=starter">Adquirir</a>
             </div>
             <div class="plan">
                 <h1>Plan Pro</h1>
@@ -66,7 +67,7 @@
                     <li>Integraciones con pasarelas de pago</li>
                     <li>Panel de estadísticas avanzado</li>
                 </ul>
-                <button class="btn btn btn-info" type="submit">Adquirir</button>
+                <a class="btn btn btn-info" href="/pago?plan=pro">Adquirir</a>
             </div>
             <div class="plan">
                 <h1>Plan Enterprise</h1>
@@ -80,7 +81,7 @@
                     <li>Optimización de rendimiento y seguridad avanzada</li>
                     <li>Capacitación personalizada para el equipo</li>
                 </ul>
-                <button class="btn btn btn-info" type="submit">Adquirir</button>
+                <a class="btn btn btn-info" href="/pago?plan=enterprise">Adquirir</a>
             </div>
         </div>
     </section>

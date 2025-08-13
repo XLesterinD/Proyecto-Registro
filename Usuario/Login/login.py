@@ -1,22 +1,11 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, Blueprint
 from flask_mysqldb import MySQL
 
-app = Flask (__name__)
+login = Blueprint('login', __name__,
+                   template_folder='templates',
+                   static_folder='static',
+                   static_url_path='/Login/static')
 
-app.config['MYSQL_HOST'] = 'bqg0wnfpwadbdjwz3uok-mysql.services.clever-cloud.com'
-app.config['MYSQL_USER'] = 'ufb8tcwkdrueue0j'
-app.config['MYSQL_PASSWORD'] = 'jOGbe9EOgQHbh1KidwMP'
-app.config['MYSQL_DB'] = 'bqg0wnfpwadbdjwz3uok'
-
-conexion = MySQL(app)
-
-@app.route('/')
-def index_login():
+@login.route('/login', methods=['GET'])
+def login_def():
     return render_template('Login.html')
-
-@app.route('/login', methods="POST")
-def login():
-    return 
-
-if __name__ == '__main__':
-    app.run(debug=True)

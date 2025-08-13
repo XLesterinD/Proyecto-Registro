@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link href="../../Index/static/images/DevPro.png" rel="icon" type="image/x icon" />
-    <link href ="../static/css/style.css" rel="Stylesheet">
+    <link href ="{{ url_for('index.static', filename='css/style.css') }}" rel="Stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
     <title>DevProGT</title>
@@ -16,12 +16,12 @@
             <img class ="img_logo" src ="../static/images/DevPro.png"/>
         </div>
         <nav class ="nav_links">
-            <a class="nav_link" href="../Index.html">Home</a>
-            <a class="nav_link" href="../../Planes/Index_planes/templates/index_planes.html">Planes</a>
-            <a class="nav_link" href="../Funciones/Index_funciones/templates/Index_funciones.html">Funciones</a>
-            <a class="nav_link" href="#">Contacto</a>
-            <a class="nav_login" href="../../Usuario/Login/templates/Login.html">Login</a>
-            <a class="nav_login" href="../../Usuario/Sign up/templates/Sign_up.html">Sign up</a>
+            <a class="nav_link" href="{{ url_for('Index.Index') }}">Home</a>
+            <a class="nav_link" href="{{ url_for('Planes.Index_planes.index_planes') }}l">Planes</a>
+            <a class="nav_link" href="{{ url_for('Index.Index') }}">Funciones</a>
+            <a class="nav_link" href="{{ url_for('Index.Index') }}">Contacto</a>
+            <a class="nav_login" href="{{ url_for('Usuario.Login.Login') }}">Login</a>
+            <a class="nav_login" href="{{ url_for('Usuario.Sign_up.Sign_up') }}">Sign up</a>
         </nav>
     </header>
     <section class="body1">
