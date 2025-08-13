@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link href="../../Index/static/images/DevPro.png" rel="icon" type="image/x icon" />
-    <link href ="{{ url_for('index.static', filename='css/style.css') }}" rel="Stylesheet">
+    <link href="{{ url_for('index_bp.static', filename='Images/DevPro.png') }}" rel="icon" type="image/x icon" />
+    <link href ="{{ url_for('index_bp.static', filename='css/style.css') }}" rel="Stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
     <title>DevProGT</title>
@@ -13,15 +13,15 @@
 <body>
     <header>
         <div class = "logo_nav">
-            <img class ="img_logo" src ="../static/images/DevPro.png"/>
+            <img class ="img_logo" src ="{{ url_for('index_bp.static', filename='Images/DevPro3.png') }}"/>
         </div>
         <nav class ="nav_links">
-            <a class="nav_link" href="{{ url_for('Index.Index') }}">Home</a>
-            <a class="nav_link" href="{{ url_for('Planes.Index_planes.index_planes') }}l">Planes</a>
-            <a class="nav_link" href="{{ url_for('Index.Index') }}">Funciones</a>
-            <a class="nav_link" href="{{ url_for('Index.Index') }}">Contacto</a>
-            <a class="nav_login" href="{{ url_for('Usuario.Login.Login') }}">Login</a>
-            <a class="nav_login" href="{{ url_for('Usuario.Sign_up.Sign_up') }}">Sign up</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Home</a>
+            <a class="nav_link" href="{{ url_for('index_planes.index_planes') }}">Planes</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Funciones</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Contacto</a>
+            <a class="nav_login" href="{{ url_for('login.login_def') }}">Login</a>
+            <a class="nav_login" href="{{ url_for('signup.signup_def') }}">Sign up</a>
         </nav>
     </header>
     <section class="body1">
@@ -30,12 +30,12 @@
             <p>Ten un registro de todos los usuarios de tu plataforma de una forma ordenada y experimenta una herramienta de automatización y ten control sobre todo en cualquier momento.</p>
         </div>
         <div class="img_body1">
-            <img src="../static/images/DevPro3.png" width="500px"/>
+            <img src="{{ url_for('index_bp.static', filename='Images/DevPro3.png') }}" width="500px"/>
         </div>
     </section>
     <secition class="body2">
         <div class="img_logo2">
-            <img class="img2" src="../static/images/219923823-bf1ce878-c6b8-4faa-be07-93e6b1006521.gif" width="600px" />
+            <img class="img2" src="{{ url_for('index_bp.static', filename='Images/219923823-bf1ce878-c6b8-4faa-be07-93e6b1006521.gif') }}" width="600px"/>
         </div>
         <div class="texto_body2">
             <h1>Utiliza esta plataforma para hacer pruebas de manera gratuita antes de adquirir el servicio.</h1>

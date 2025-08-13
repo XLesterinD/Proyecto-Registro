@@ -7,20 +7,20 @@
     <link href="../static/images/DevPro.png" rel="icon" type="image/x icon" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
-    <link href="../static/styleLogin.css" rel="stylesheet"/>
+    <link href="{{ url_for('login.static', filename='styleLogin.css') }}" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
     <header>
         <div class = "logo_nav">
-            <img class ="img_logo" src ="../static/images/DevPro.png"/>
+            <img class ="img_logo" src ="{{ url_for('login.static', filename='Images/DevPro.png') }}"/>
         </div>
         <nav class ="nav_links">
-            <a class="nav_link" href="../../../Index/templates/Index.html">Home</a>
-            <a class="nav_link" href="../../../Planes/Index_planes/templates/index_planes.html">Planes</a>
-            <a class="nav_link" href="../Funciones/Index_funciones/templates/Index_funciones.html">Funciones</a>
-            <a class="nav_link" href="#">Contacto</a>
-            <a class="nav_login" href="../Usuario/Sign up/templates/Sign_up.html">Sign up</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Home</a>
+            <a class="nav_link" href="{{ url_for('index_planes.index_planes') }}">Planes</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Funciones</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Contacto</a>
+            <a class="nav_login" href="{{ url_for('signup.signup_def') }}">Sign up</a>
         </nav>
     </header>
     <section class="login_complete">
@@ -28,8 +28,8 @@
             <h2>Inicia sesión y ten acceso a funciones para organizar tu información</h2>
         </div>
         <div class="login">
-            <img src="../static/images/DevPro3.png" width="100px"/>
-            <form class="datos" action="{{ url_for('login') }}" method="POST">
+            <img src="{{ url_for('login.static', filename='Images/DevPro3.png') }}" width="100px"/>
+            <form class="datos" action="{{ url_for('login.login_def') }}" method="POST">
                 <input class="form-control" type="email" id="email_login" placeholder="Ingresa tu usuario" name="email_login"/>
                 <input class="form-control" type="password" id="password_login" placeholder="Ingresa tu contraseña" name="password_login"/>
                 <button class="btn btn-primary" id="button_login" name="button_login">Ingresar</button>

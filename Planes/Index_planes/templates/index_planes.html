@@ -17,12 +17,12 @@
             <img class ="img_logo" src ="{{ url_for('index_planes.static', filename='images/DevPro.png') }}"/>
         </div>
         <nav class ="nav_links">
-            <a class="nav_link" href="../../../Index/templates/Index.html">Home</a>
-            <a class="nav_link" href="../../Planes/Index_planes/templates/index_planes.html">Planes</a>
-            <a class="nav_link" href="../Funciones/Index_funciones/templates/Index_funciones.html">Funciones</a>
-            <a class="nav_link" href="#">Contacto</a>
-            <a class="nav_login" href="../../../Usuario/Login/templates/Login.html">Login</a>
-            <a class="nav_login" href="../../Usuario/Sign up/templates/Sign_up.html">Sign up</a>
+            <<a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Home</a>
+            <a class="nav_link" href="{{ url_for('index_planes.index_planes') }}">Planes</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Funciones</a>
+            <a class="nav_link" href="{{ url_for('index_bp.index_page') }}">Contacto</a>
+            <a class="nav_login" href="{{ url_for('login.login_def') }}">Login</a>
+            <a class="nav_login" href="{{ url_for('signup.signup_def') }}">Sign up</a>
         </nav>
     </header>
     <section class="section1">
