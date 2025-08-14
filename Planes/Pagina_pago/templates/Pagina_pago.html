@@ -25,9 +25,9 @@
         </nav>
     </header>
     <section class="section1">
-        
-        <form class="form_pago" action="/procesar-pago" method="POST">
+        <form class="form_pago" action="{{ url_for('pagina_pago.procesar_pago') }}" method="POST">
             <h2>Formulario de Pago</h2>
+
             <label for="nombre">Nombre:</label>
             <input class="input-group-text" type="text" id="nombre" name="nombre" required>
 
@@ -35,7 +35,7 @@
             <input class="input-group-text" type="text" id="apellido" name="apellido" required>
 
             <label for="correo">Correo electrónico:</label>
-            <input class="input-group-text" type="email" id="correo" name="correo" required>
+            <input class="input-group-text" type="email" id="correo" name="email" required>
 
             <label for="telefono">Teléfono:</label>
             <input class="input-group-text" type="text" id="telefono" name="telefono" required>
@@ -50,32 +50,37 @@
             <input class="input-group-text" type="text" id="direccion" name="direccion" required>
 
             <label for="codigo_postal">Código Postal:</label>
-            <input class="input-group-text" type="text" id="codigo_postal" name="codigo_postal" required>
+            <input class="input-group-text" type="text" id="codigo_postal" name="zip" required>
 
-            <label for="nit">NIT:</label>
+            <label for="codigo_postal">NIT:</label>
             <input class="input-group-text" type="text" id="nit" name="nit" required>
+
+            <!-- Campos ocultos de plan y producto -->
+            <input type="hidden" name="producto" value="{{ plan }}">
+            <input type="hidden" id="precio" name="precio" value="{{ precio.mensual }}">
+
+            <h3>Selecciona tipo de pago</h3>
+            <label>
+                <input type="radio" name="tipo_pago" value="mensual" data-precio="{{ precio.mensual }}" checked>
+                Mensual - ${{ precio.mensual }}
+            </label><br>
+
+            <label>
+                <input type="radio" name="tipo_pago" value="anual" data-precio="{{ precio.anual }}">
+                Anual - ${{ precio.anual }}
+            </label><br>
 
             <button class="btn btn-dark" type="submit">Pagar ahora</button>
         </form>
 
-        <div class="info_pago">
-            <h2>Has seleccionado el {{ plan | capitalize }}</h2>
-            <p>{{ descripcion }}</p>
+<script>
+document.querySelectorAll('input[name="tipo_pago"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        document.getElementById('precio').value = this.dataset.precio;
+    });
+});
+</script>
 
-            <form method="POST" action="/procesar-pago">
-                <input type="hidden" name="plan" value="{{ plan }}">
-
-                <label>
-                    <input type="radio" name="tipo_pago" value="mensual:{{ precio.mensual }}" checked>
-                    Mensual - ${{ precio.mensual }}
-                </label><br>
-
-                <label>
-                    <input type="radio" name="tipo_pago" value="anual:{{ precio.anual }}">
-                    Anual - ${{ precio.anual }}
-                </label><br>
-            </form>
-        </div>
 
     </section>
     <footer>
