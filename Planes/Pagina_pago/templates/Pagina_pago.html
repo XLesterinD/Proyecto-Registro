@@ -60,6 +60,7 @@
             <input type="hidden" id="precio" name="precio" value="{{ precio.mensual }}">
 
             <h3>Selecciona tipo de pago</h3>
+            <h3>{{ descripcion }}</h3>
             <label>
                 <input type="radio" name="tipo_pago" value="mensual" data-precio="{{ precio.mensual }}" checked>
                 Mensual - ${{ precio.mensual }}

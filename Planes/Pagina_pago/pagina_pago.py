@@ -8,10 +8,10 @@ pago_bp = Blueprint('pagina_pago', __name__,
                     static_url_path='/Pagina_pago/static')
 
 # Configuración QPayPro
-QPAY_LOGIN = "visanetgt_qpay"
-QPAY_API_KEY = "88888888888"
-QPAY_SANDBOX = True  # True para pruebas, False para producción
-QPAY_RELAY_URL = "http://127.0.0.1:5000/pago-confirmado"  # URL a donde volverá al finalizar
+QPAY_LOGIN = "WIoCLSC5JT2t4896"
+QPAY_API_KEY = "811TVueoGPZS4896"
+QPAY_SANDBOX = False  # True para pruebas, False para producción
+QPAY_RELAY_URL = "https://3360773e3e4e.ngrok-free.app/confirmado"  # URL a donde volverá al finalizar
 
 @pago_bp.route('/pago', methods=['GET'])
 def pago():
@@ -26,7 +26,7 @@ def pago():
 
     precios = {
         'free': {'mensual': 0, 'anual': 0}, 
-        'starter': {'mensual': 3, 'anual': 30},
+        'starter': {'mensual': 1, 'anual': 30},
         'pro': {'mensual': 6, 'anual': 65},
         'enterprise': {'mensual': 10, 'anual': 100}
     }
@@ -38,6 +38,7 @@ def pago():
 
 @pago_bp.route('/procesar-pago', methods=['POST'])
 def procesar_pago():
+    
     # Recibir datos del formulario
     nombre = request.form.get('nombre')
     apellido = request.form.get('apellido')
@@ -70,10 +71,10 @@ def procesar_pago():
         "x_ship_to_phone": telefono,
         "x_description": f"Compra plan {plan} ({tipo_pago})",
         "x_invoice_num": "12345",  # puedes generar dinámico
-        "x_url_success": "",
-        "x_url_error": "",
+        "x_url_success": "https://3360773e3e4e.ngrok-free.app/exitoso",
+        "x_url_error": "https://3360773e3e4e.ngrok-free.app/cancelado",
         "x_url_cancel": url_for('pagina_pago.pago', plan=plan, _external=True),
-        "http_origin": "http://127.0.0.1:5000",
+        "http_origin": "https://3360773e3e4e.ngrok-free.app",
         "x_company": nit,
         "x_address": direccion,
         "x_city": ciudad,
@@ -81,8 +82,8 @@ def procesar_pago():
         "x_state": estado,
         "x_zip": zip_code,
         "products": json.dumps([[f"Plan {plan}", "SKU-001", "", "1", str(precio), str(precio)]]),
-        "x_freight": "0.00",
-        "taxes": "0.00",
+        "x_freight": "1.00",
+        "taxes": "1.00",
         "x_email": email,
         "x_type": "AUTH_ONLY",
         "x_method": "CC",
@@ -94,10 +95,11 @@ def procesar_pago():
         "x_discount": "0"
     }
 
-    # URL de QPayPro según ambiente
-    QPAY_TOKEN_URL = "https://api-sandboxpayments.qpaypro.com/checkout/register_transaction_store" if QPAY_SANDBOX else "https://api-sandboxpayments.qpaypro.com/checkout/register_transaction_store"
     
-    response = requests.post(QPAY_TOKEN_URL, json=payload)
+    # URL de QPayPro según ambiente
+    QPAY_TOKEN_URL = "https://api-sandboxpayments.qpaypro.com/checkout/register_transaction_store" if QPAY_SANDBOX else "https://api-payments.qpaypro.com/checkout/register_transaction_store"
+    
+    response = requests.post(QPAY_TOKEN_URL, json=payload, verify=False)
 
     if response.status_code == 200:
         try:
